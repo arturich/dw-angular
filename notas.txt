@@ -1,0 +1,8 @@
+master --> login
+       --> contacto
+
+gitflows
+    No changes over master
+    Create a QA branch, a branch for Dev, and feature branch
+    
+           
