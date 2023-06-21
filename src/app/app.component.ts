@@ -24,9 +24,8 @@ export class AppComponent {
     this.cargando = true;
 
     setTimeout(() => {
-      this.nombre   = "Pedro";
+      this.nombre = "Pedro";
       this.cargando = false;      
-      this.tareas   = ['tarea1','tarea2','tarea3'];
     },3000);
   }
 

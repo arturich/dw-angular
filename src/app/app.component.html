@@ -1,12 +1,9 @@
-<p [ngClass]="color">Hello {{nombre}}</p>
+<app-header></app-header>
 
 
-<p *ngIf="cargando" >Cargando...</p>
-
-<p>Cambios {{cambios}}</p>
-
-<ul>
-    <li *ngFor="let item of tareas">{{item}}</li>
-</ul>
+<div>
+    <router-outlet></router-outlet>
+</div>
 
 <button (click)="cambiarColor()"> Cambiar Color </button>
+<app-footer></app-footer>

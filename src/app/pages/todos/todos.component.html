@@ -1,1 +1,13 @@
 <p>todos works!</p>
+
+<!--
+<ng-container *ngIf="false" >
+    <p [ngClass]="color">Hello {{nombre}}</p>
+    <p *ngIf="cargando" >Cargando...</p>
+    <p>Cambios {{cambios}}</p>
+</ng-container>
+-->
+<h1>Todos</h1>
+<ul>
+    <li *ngFor="let item of todos">{{item.title}}</li>
+</ul>
