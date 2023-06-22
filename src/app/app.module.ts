@@ -9,6 +9,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './layaout/header/header.component';
 import { FooterComponent } from './layaout/footer/footer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

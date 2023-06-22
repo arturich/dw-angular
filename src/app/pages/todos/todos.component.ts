@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 
-interface Todo {
-  title: string;
-  description: string;
-  status: string;
-}
+import { Todo } from 'src/app/shared/models/todo'
+import { TodoService } from 'src/app/shared/services/todo.service';
 
 
 @Component({
@@ -17,13 +14,9 @@ export class TodosComponent {
   todos: Todo[] = [];
 
 
-  constructor() {
+  constructor(todoService: TodoService) {
     setTimeout(() => {
-      this.todos = [
-        { title: 'Tarea1', description: 'lorem imposum', status: 'new' },
-        { title: 'Tarea2', description: 'lorem imposum', status: 'new' },
-        { title: 'Tarea3', description: 'lorem imposum', status: 'new' }
-      ];
+      this.todos = todoService.getTodos();
     },1000)
   }
 
