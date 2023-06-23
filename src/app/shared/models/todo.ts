@@ -1,5 +1,5 @@
 export interface Todo {
     title: string;
-    description: string;
+    description?: string;
     status: string;
   }

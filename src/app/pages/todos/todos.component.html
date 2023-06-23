@@ -9,6 +9,10 @@
         <button mat-raised-button  (click)="cambiarColor()"> Cambiar Color </button>
 -->
 <h1>Todos</h1>
-<ul>
-    <li *ngFor="let item of todos">{{item.title}}</li>
+<a mat-flat-button color="primary" routerLink="new">New Todos</a>
+
+<ul  *ngIf="!error">
+    <li *ngFor="let item of todos">{{item.title}} {{item.description}}</li>
 </ul>
+
+<p *ngIf="error">Ocurrcio un error, intente mas tarde </p>
