@@ -4,6 +4,9 @@ import { Todo } from 'src/app/shared/models/todo'
 import { SnackBarService } from 'src/app/shared/services/snack-bar.service';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
+import { MatDialog } from '@angular/material/dialog';
+import { NewTodoComponent } from './new-todo/new-todo.component';  
+
 
 
 @Component({
@@ -16,7 +19,11 @@ export class TodosComponent implements OnInit {
   todos: Todo[] = [];
   error : boolean = false;
 
-  constructor(private todoService: TodoService, private snackBar : SnackBarService) {
+  displayedColumns : string[] = ["title",'description','status','created_at'];
+
+  constructor(private todoService: TodoService, 
+      private snackBar : SnackBarService, 
+        private matDialog : MatDialog) {
       this.todoService = todoService;
   }
 
@@ -43,5 +50,17 @@ export class TodosComponent implements OnInit {
     )
   }
 
+  openNewTodo() {
+    const dialogRef = this.matDialog.open(NewTodoComponent, {
+      width:  '600px',
+      height: 'auto'
+    });
+
+    dialogRef.afterClosed().subscribe((response) => {
+       if(response) {
+        this.getTodos();
+       }
+    })
+  }
 
 }

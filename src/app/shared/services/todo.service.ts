@@ -14,4 +14,10 @@ export class TodoService {
     const url = environment.apiUrl + 'tareas';
     return this.httpClient.get<Todo[]>(url);
   }
+
+
+  newTodo(todo : Todo) : Observable<Todo> {
+    const url = environment.apiUrl + 'tareas';
+    return this.httpClient.post<Todo>(url,todo);
+  }
 }
