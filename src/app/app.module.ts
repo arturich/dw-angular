@@ -15,6 +15,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { NewTodoComponent } from './pages/todos/new-todo/new-todo.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TodoDetailsComponent } from './pages/todos/todo-details/todo-details.component';
+import { TodoListComponent } from './pages/todos/todo-list/todo-list.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
-    NewTodoComponent
+    NewTodoComponent,
+    TodoDetailsComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class NewTodoComponent {
 
   appereance: MatFormFieldAppearance = "fill";
+  valor : string = "";
 
   todo : Todo  = {
     title : '',

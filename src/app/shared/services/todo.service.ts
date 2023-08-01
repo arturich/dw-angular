@@ -9,6 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 export class TodoService {
 
+  private todo: Todo = {
+    title: '',
+    description : '',
+    status: ''
+  }
+
   constructor(private httpClient: HttpClient) { }
   getTodos() : Observable<Todo[]> {
     const url = environment.apiUrl + 'tareas';
@@ -19,5 +25,19 @@ export class TodoService {
   newTodo(todo : Todo) : Observable<Todo> {
     const url = environment.apiUrl + 'tareas';
     return this.httpClient.post<Todo>(url,todo);
+  }
+
+  setCurrent(todo: Todo) {
+    this.todo = todo;
+
+  }
+
+  getCurrent(): Todo {
+    return this.todo;
+  }
+
+  getTodoById(id: string) : Observable<Todo> {
+    const url: string = environment.apiUrl + 'tareas/'+id;
+    return this.httpClient.get<Todo>(url); 
   }
 }
