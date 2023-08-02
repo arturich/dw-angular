@@ -65,7 +65,8 @@ export class TodoListComponent implements OnInit {
   }
 
   setTodo(todo: Todo) {
-    
+    this.todoService.setCurrent(todo);
+
   }
 
 }

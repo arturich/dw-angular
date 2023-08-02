@@ -8,6 +8,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewTodoComponent } from './pages/todos/new-todo/new-todo.component';
 import { TodoListComponent } from './pages/todos/todo-list/todo-list.component';
 import { TodoDetailsComponent } from './pages/todos/todo-details/todo-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
       {path: 'list', component : TodoListComponent},
       {path: ':id', component : TodoDetailsComponent},
   ]},
+   {path: 'login', component : LoginComponent},
+   {path: 'signup', component : SignupComponent},
   //{ path:'todos/new', component: NewTodoComponent},
   { path: '**', component: NotFoundComponent}
 ];

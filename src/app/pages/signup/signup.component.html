@@ -1,0 +1,57 @@
+
+<div class="content"> 
+    <form [formGroup]="form" (submit)="signup()">
+        Valido: {{form.valid}}
+        <!-- <div>
+            <label for="name" >* Name:  </label>
+            <input type="text" name="name" formControlName="name"> 
+            <span class="error" *ngIf="hasError('name', 'required')">This field is required</span>
+            <span class="error" *ngIf="form.controls['name'].errors!['minlength']">Min length is 2 chars</span>
+        </div>
+
+        <div>
+            <label for="email" >* Email:  </label>
+            <input type="email" name="email" formControlName="email"> 
+            <span class="error" *ngIf="form.controls['email'].errors!['required']">This field is required</span>
+            <span class="error" *ngIf="form.controls['email'].errors!['email']">Email</span>
+        </div> -->
+
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+            <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Code</mat-label>
+            <input matInput type="text" formControlName="code">
+            <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirm">
+            <mat-error>This field is required</mat-error>
+        </mat-form-field>
+        <mat-checkbox formControlName="terms">
+            Accept terms and conditions:
+        </mat-checkbox>
+
+        <div>          
+            <button disabled]="form.invalid" >Sign up</button>
+        </div>
+
+    </form>
+</div>

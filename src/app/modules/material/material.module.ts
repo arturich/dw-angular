@@ -8,6 +8,7 @@ import { MatInputModule }  from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatTableModule } from '@angular/material/table';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTableModule 
+    MatTableModule,
+    MatCheckboxModule
   ] 
 })
 export class MaterialModule { }

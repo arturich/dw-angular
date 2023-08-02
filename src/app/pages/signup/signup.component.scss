@@ -1,0 +1,16 @@
+span.error {
+    display: none;
+    color: red;
+}
+
+
+input.ng-invalid.ng-touched {
+    border-color: red;
+    
+    + span.error {
+        display:inline;
+
+    }
+}
+
+// #inmediatamente despues
