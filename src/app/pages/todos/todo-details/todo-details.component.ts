@@ -36,12 +36,12 @@ todoId : string = '';
     if(this.todo._id !== this.todoId) {
       //this.router.navigate(['..']);
 
-      this.todoService.getTodoById(this.todoId).subscribe({
-          next: (response : Todo) => {
-            this.todo = response;
-          },
-          error: () => {}
-      })
+      // this.todoService.getTodoById(this.todoId).subscribe({
+      //     next: (response : Todo) => {
+      //       this.todo = response;
+      //     },
+      //     error: () => {}
+      // })
 
     }
   }

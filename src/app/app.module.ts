@@ -19,6 +19,8 @@ import { TodoDetailsComponent } from './pages/todos/todo-details/todo-details.co
 import { TodoListComponent } from './pages/todos/todo-list/todo-list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { DataTableModule } from './modules/data-table/data-table.module';
+import { SpinnerModule } from './modules/spinner/spinner.module';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { SignupComponent } from './pages/signup/signup.component';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTableModule,
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

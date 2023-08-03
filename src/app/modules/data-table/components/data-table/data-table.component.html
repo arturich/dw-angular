@@ -1,0 +1,75 @@
+<!-- <table>
+
+    <thead>
+
+        <tr>
+
+            <th>Id</th>
+
+            <th>Title</th>
+
+            <th>Description</th>
+
+            <th>Status</th>
+
+            <th>Created</th>
+
+            <th>Detalis</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let item of items ">
+
+            <td>{{item._id}} </td>
+
+            <td>{{item.title}} </td>
+
+            <td>{{item.description}} </td>
+
+            <td>{{item.status}} </td>
+
+            <td>{{item.createdAt | date:"dd/MM/YYYY"}} </td>
+            <td>
+                <a (click)="selectItem(item)" [routerLink]="item._id">View</a>
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table> -->
+<!--
+<ng-container *ngIf="false" >
+    <p [ngClass]="color">Hello {{nombre}}</p>
+    <p *ngIf="cargando" >Cargando...</p>
+    <p>Cambios {{cambios}}</p>
+</ng-container>
+        <button mat-raised-button  (click)="cambiarColor()"> Cambiar Color </button>
+-->
+
+ <!--  <button mat-flat-button color="primary" (click)="openNewTodo()">New Todo</button> -->
+<!-- <a mat-flat-button color="primary" routerLink="new">New Todos</a> -->
+
+<table mat-table [dataSource]="items" class="mat-elevation-z8">
+
+    <ng-container *ngFor="let col of columns" [matColumnDef]="col.propertyName">
+      <th mat-header-cell *matHeaderCellDef> {{col.title}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[col.propertyName]}} </td>
+    </ng-container>    
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> 
+            <a (click)="selectItem(element)" [routerLink]="element._id">View</a>
+        </td>
+      </ng-container>  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns">Details</tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+<p *ngIf="error">Ocurrcio un error, intente mas tarde </p>

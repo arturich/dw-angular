@@ -34,17 +34,17 @@ export class NewTodoComponent {
   create() {
     if( !this.todo.title || !this.todo.description || !this.todo.status) return;
 
-    this.todoService.newTodo(this.todo).subscribe({
+    // this.todoService.newTodo(this.todo).subscribe({
 
-      next: (response : Todo) => {
-          this.snakBar.open(`Task  "${response._id}" created successfully `)
-          //this.router.navigate(['todos'])
-          this.dialogRef.close(true);
-      },
-      error: () => {
-        this.snakBar.open(`Opps something failed `)
-      }
-    });
+    //   next: (response : Todo) => {
+    //       this.snakBar.open(`Task  "${response._id}" created successfully `)
+    //       //this.router.navigate(['todos'])
+    //       this.dialogRef.close(true);
+    //   },
+    //   error: () => {
+    //     this.snakBar.open(`Opps something failed `)
+    //   }
+    // });
 
   }
 
