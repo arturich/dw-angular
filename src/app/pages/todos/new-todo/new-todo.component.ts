@@ -5,6 +5,7 @@ import { SnackBarService } from 'src/app/shared/services/snack-bar.service';
 import { TodoService } from 'src/app/shared/services/todo.service';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-todo',
@@ -23,17 +24,37 @@ export class NewTodoComponent {
 
   }
 
+  form : FormGroup;
+
   constructor(private todoService : TodoService, 
       private snakBar : SnackBarService,
-        private dialogRef : MatDialogRef<NewTodoComponent>
+       // private dialogRef : MatDialogRef<NewTodoComponent>,
+        formBuilder: FormBuilder, private router: Router
     ) {
+
+      this.form  = formBuilder.group ({
+        title : ['',[Validators.required, Validators.maxLength(75)]],
+        description : ['',[Validators.required, Validators.maxLength(250)]],
+        status : ['new']
+      });
 
   }
 
 
   create() {
-    if( !this.todo.title || !this.todo.description || !this.todo.status) return;
+    
+    if(this.form.valid) {
+      const data : Todo = this.form.getRawValue();
+      this.todoService.create(data).subscribe({
 
+        next: () => {
+          this.router.navigate(['..']);
+        },
+        error: () => {
+          console.log("Something went wrong");
+        }   
+      })
+    }
     // this.todoService.newTodo(this.todo).subscribe({
 
     //   next: (response : Todo) => {

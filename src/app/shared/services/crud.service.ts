@@ -11,7 +11,7 @@ export class CrudService {
 
   protected endpoint : string = '';
 
-  constructor(private httpClient : HttpClient) {
+  constructor(protected httpClient : HttpClient) {
       
    }
 
@@ -19,5 +19,15 @@ export class CrudService {
       const url: string = environment.apiUrl + this.endpoint;
       return this.httpClient.get<any[]>(url);
    }
+
+     getItemById(id: string) : Observable<any> {
+      const url: string = `${environment.apiUrl}${this.endpoint}/${id}`;
+      return this.httpClient.get<any>(url); 
+    }
+
+    create(data : any) : Observable<any> {
+      const url: string = `${environment.apiUrl}${this.endpoint}`;
+      return this.httpClient.post<any>(url, data);
+    }
 }
 

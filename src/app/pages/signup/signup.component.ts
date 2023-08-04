@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/shared/models/user';
+import { SignupService } from 'src/app/shared/services/signup.service';
+import { SnackBarService } from 'src/app/shared/services/snack-bar.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,12 +14,12 @@ export class SignupComponent {
 
   form: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private signupService: SignupService, private snack : SnackBarService, private router : Router) {
 
     this.form = formBuilder.group({
         name: ["",[Validators.required, Validators.minLength(2)]],
         email: ["",[Validators.required, Validators.email]],
-        code:['',[Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+        course:['',[Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
         password:['',[Validators.required, Validators.minLength(8)]],
         confirm:['',[Validators.required, Validators.minLength(8)]],
         terms:[false,[Validators.requiredTrue]]
@@ -27,6 +31,18 @@ export class SignupComponent {
   signup() {
  
     if(this.form.valid) {
+
+      const data : User = this.form.getRawValue();
+      this.signupService.signup(data).subscribe({
+        next:() => {
+          this.snack.open("Exito");
+          this.router.navigate(['/login']);
+        },
+        error:() => {
+          this.snack.open("Something fail! Try again")
+        }
+      });
+
       console.log("Datos correctos");
     } else {
       console.log(this.form);
